@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="{{ asset('bundles/bootstrap/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/bootstrap/css/bootstrap-grid.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('resources/css/main.css') }}" />
+    <title>{% block title %}Need titel{% endblock %}</title>
+</head>
+<body>
+    <div class="container clearfix" id="main-container">
+        <nav id="main-nav">
+            NAV NAV NAV
+        </nav>
+        <header class="row" id="main-header">
+            HEADER HEADER HEADER
+        </header>
+        <div class="row">
+            <div class="col-md-8 col-xs-12" id="main-recent-episodes">RECENT EPISODES</div>
+            <div class="col-md-4 col-xs-12" id="main-subscribe">SUBSCRIBE SUBSCRIBE</div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12" id="main-recent-blog">BLOG BLOG BLOG</div>
+            <div class="col-md-6 col-xs-12"></div>
+        </div>
+    </div>
+
+    <script src="{{ asset('bundles/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/tether/js/tether.min.js') }}"></script>
+    <script src="{{ asset('bundles/bootstrap/js/bootstrap.min.js') }}"></script>
+</body>
+</html>
