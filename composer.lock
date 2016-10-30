@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d2f2cd747e0e9dca903fa2d0c119972a",
-    "content-hash": "4950f365f742ba27902555ae7f211223",
+    "hash": "c8b9bfad59d82150f6d2990b5e7292b7",
+    "content-hash": "3f71550b5a786f855330df2fa65467ac",
     "packages": [
         {
             "name": "bordercloud/tether",
