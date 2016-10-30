@@ -1,7 +1,17 @@
 {
-    "name": "aj/appwebsite",
-    "license": "proprietary",
+    "name": "goldman60/appwebsite",
+    "version": "1.0.0-dev",
+    "description": "The website for https://aprogrammingpodcast.com",
+    "homepage": "https://AProgrammingPodcast.com",
+    "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "AJ Fite",
+            "homepage": "https://ajfite.com",
+            "role": "Lead Developer"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "": "src/"
