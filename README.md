@@ -18,6 +18,3 @@ Build Requirements
 ==================
 * PHP 7.1
 * [Any required Symfony setup](https://symfony.com/doc/3.1.5/setup.html)
-* At the moment there are some special symlinks required, I will eliminate
-  those before its pushed to bleeding, this currently breaks Bootstrap see
-  [Issue #1](https://github.com/Goldman60/AppWebsite/issues/1)
