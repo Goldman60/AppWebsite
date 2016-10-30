@@ -3,9 +3,7 @@
 
 hosted at [aprogrammingpodcast.com](https://aprogrammingpodcast.com) (coming soon)
 
-In-dev can be found at [bleeding.aprogrammingpodcast.com](https://bleeding.aprogrammingpodcast.com) (coming soon)
-
-Build services can be found at [build.nclf.net](https://build.nclf.net) (Coming Soon)
+In-dev can be found at [bleeding.aprogrammingpodcast.com](https://bleeding.aprogrammingpodcast.com) [![Build Status](https://build.nclf.net/job/AppWebsite-Alpha/badge/icon)](https://build.nclf.net/job/AppWebsite-Alpha)
 
 Submission guidelines
 =====================
