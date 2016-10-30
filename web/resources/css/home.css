@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#most-recent-episode, #subscribe {
+    height: 150px;
+}
+
+#blog, #recent-episodes {
+    height: 300px;
+}
+
+#most-recent-episode {
+    background-color: blue;
+}
+
+#subscribe {
+    background-color: red;
+}
+
+#blog {
+    background-color: green;
+}
+
+#recent-episodes {
+    background-color: purple;
+}

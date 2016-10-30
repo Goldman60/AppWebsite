@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+body {
+    background-color: black;
+    color: white;
+}
+
 #main-container {
 
 }
@@ -12,6 +17,6 @@
 
 }
 
-.bg-dark {
-    background-color: black;
+.nav-pills {
+    background-color: green;
 }

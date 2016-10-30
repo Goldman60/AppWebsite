@@ -8,22 +8,31 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
-class DefaultController extends Controller {
+class MainController extends Controller {
     /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request) {
-        // replace this example code with whatever you need
         return $this->render('primary/index.html.twig', [
 
         ]);
     }
+
     /**
-     * @Route("/aboutus", name="about")
+     * @Route("/hosts", name="hosts")
      */
-    public function aboutAction(Request $request) {
-        return new Response(
-            'This is a test page'
-        );
+    public function hostsAction(Request $request) {
+        return $this->render('primary/hosts.html.twig', [
+
+        ]);
+    }
+
+    /**
+     * @Route("/subscribe", name="subscribe")
+     */
+    public function subscribeAction(Request $request) {
+        return $this->render('primary/subscribe.html.twig', [
+
+        ]);
     }
 }

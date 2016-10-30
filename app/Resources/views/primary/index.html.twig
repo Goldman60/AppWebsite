@@ -1,2 +1,19 @@
+{# Home page #}
 {% extends 'templates/master.html.twig' %}
 
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('resources/css/home.css') }}" />
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-lg-8 col-xs-12" id="most-recent-episode">NEWEST EPISODES</div>
+    <div class="col-lg-4 col-xs-12" id="subscribe">SUBSCRIBE SUBSCRIBE</div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-xs-12" id="recent-episodes">RECENT EPISODES</div>
+    <div class="col-md-6 col-xs-12" id="blog">BLOG</div>
+</div>
+{% endblock %}
