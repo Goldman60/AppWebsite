@@ -45,11 +45,16 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
+        "custom-package-actions": [
+            "AppBundle\\Composer\\ScriptHandler::installCustomAssets"
+        ],
         "post-install-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
+            "@custom-package-actions"
         ],
         "post-update-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
+            "@custom-package-actions"
         ]
     },
     "extra": {
