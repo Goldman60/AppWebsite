@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: aj
- * Date: 10/30/16
- * Time: 12:30 AM
- */
 
 namespace AppBundle\Controller;
 
@@ -16,17 +10,32 @@ use Symfony\Component\HttpFoundation\Response;
 class FeedController
 {
     /**
-     * @Route("/blog", name="blog")
+     * @Route(
+     *      "/feed/podcast/{page}.{_format}",
+     *      defaults={"_format": "html"},
+     *      name="podcast_feed",
+     *      requirements={
+     *          "page": "\d+|all"
+     *      }
+     * )
+     * @Route("/episodes", name="episodes_landing")
      */
-    public function blogAction(Request $request) {
-        return new Response("Blog");
+    public function listEpisodes($page = 1) {
+        return new Response("Podcast List Page = " . $page);
     }
 
     /**
-     * @Route("/episodes", name="episodes")
+     * @Route(
+     *      "/feed/podcast/ep/{episodeNumber}.{_format}",
+     *      defaults={"_format": "html"},
+     *      name="download_episode",
+     *      requirements={
+     *          "episodeNumber": "\d+",
+     *          "_format": "mp3|wav|html"
+     *      }
+     * )
      */
-    public function episodesAction(Request $request) {
-        //send them to a blog category
-        return new Response("Episodes");
+    public function downloadEpisode($episodeNumber, $_format) {
+        return new Response("Download episode " . $episodeNumber . " in format " . $_format);
     }
 }
