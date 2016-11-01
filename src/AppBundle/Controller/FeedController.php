@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class FeedController
+class FeedController extends Controller
 {
     /**
      * @Route(
@@ -15,27 +15,54 @@ class FeedController
      *      defaults={"_format": "html"},
      *      name="podcast_feed",
      *      requirements={
-     *          "page": "\d+|all"
+     *          "page": "\d+|all",
+     *          "_format": "html|rss"
      *      }
      * )
      * @Route("/episodes", name="episodes_landing")
      */
-    public function listEpisodes($page = 1) {
-        return new Response("Podcast List Page = " . $page);
+    public function listEpisodes($page = 1, $_format) {
+        //TODO: Pull episode data
+
+        if($_format == "rss") {
+            return $this->render('feed/podcast.rss.twig');
+        } else {
+            return $this->render('feed/podcast.html.twig');
+        }
     }
 
     /**
      * @Route(
      *      "/feed/podcast/ep/{episodeNumber}.{_format}",
      *      defaults={"_format": "html"},
-     *      name="download_episode",
+     *      name="view_episode",
      *      requirements={
      *          "episodeNumber": "\d+",
-     *          "_format": "mp3|wav|html"
+     *          "_format": "html|rss"
      *      }
      * )
      */
+    public function viewEpisode($episodeNumber, $_format) {
+        //TODO: Pull episode data
+
+        if($_format == "rss") {
+            return $this->render('feed/episode.rss.twig');
+        } else {
+            return $this->render('feed/episode.html.twig');
+        }
+    }
+
+    /**
+     * @Route(
+     *     "/feed/podcast/ep/{episodeNumber}/{episodeName}.{_format}",
+     *     name="download_episode",
+     *     requirements={
+     *          "episodeNumber": "\d+",
+     *          "_format": "mp3|ogg"
+     *     }
+     * )
+     */
     public function downloadEpisode($episodeNumber, $_format) {
-        return new Response("Download episode " . $episodeNumber . " in format " . $_format);
+        //TODO: Counting and analytics, return file here
     }
 }
