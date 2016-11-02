@@ -5,7 +5,7 @@
 rsync -a --delete --exclude /var/cache/ --exclude /var/logs/ --exclude /var/sessions/ $WORKSPACE/ /www/aprogrammingpodcast.com/bleeding/ --no-perms --no-owner --no-group
 
 #Copy in special config from Jenkins
-cp $YML_PARAMS /www/aprogrammingpodcast.com/bleeding/app/config/
+cp $YML_PARAMS /www/aprogrammingpodcast.com/bleeding/app/config/parameters.yml
 
 #Set group perms on everything but the caching directory
 find /www/aprogrammingpodcast.com/bleeding/ -name var -prune -o -print0 | xargs -0 chgrp www-data
