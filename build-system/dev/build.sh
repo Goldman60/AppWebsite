@@ -1,8 +1,5 @@
 #!/bin/bash
-#Build script for
-export SYMFONY_ENV=prod
-
-/usr/local/bin/composer install --no-dev
+composer install --no-dev
 
 #Send files to dev directory
 rsync -a --delete --exclude /var/cache/ --exclude /var/logs/ --exclude /var/sessions/ $WORKSPACE/ /www/aprogrammingpodcast.com/bleeding/ --no-perms --no-owner --no-group
@@ -11,19 +8,7 @@ rsync -a --delete --exclude /var/cache/ --exclude /var/logs/ --exclude /var/sess
 cp $YML_PARAMS /www/aprogrammingpodcast.com/bleeding/app/config/parameters.yml
 
 #Set group perms on everything but the caching directory
-find /www/aprogrammingpodcast.com/bleeding/ -name var -prune -o -print0 | xargs -0 chgrp www-data
-
-#Sets up the directories in var that symfony writes to
-SetupCachingDirectory() {
-    if [ ! -d "$1" ]; then
-        mkdir "$1"
-        chgrp www-data "$1"
-    fi
-
-    chmod 777 "$1"
-
-    return 0
-}
+SetGroupWWWData /www/aprogrammingpodcast.com/bleeding/
 
 #run the setups
 SetupCachingDirectory /www/aprogrammingpodcast.com/bleeding/var
