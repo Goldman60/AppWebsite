@@ -26,7 +26,7 @@ class Episode
     /**
      * @var string
      *
-     * @ORM\Column(name="number", type="decimal")
+     * @ORM\Column(name="number", type="decimal", unique=true, scale=1)
      */
     private $number;
 
@@ -46,16 +46,16 @@ class Episode
     private $description;
 
     /**
-     * @var Date
+     * @var \DateTime
      *
-     * @ORM\Column(name="recordDate", type="date")
+     * @ORM\Column(name="record_date", type="datetime")
      */
     private $recordDate;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      *
-     * @ORM\Column(name="postDate", type="datetime")
+     * @ORM\Column(name="post_date", type="datetime")
      */
     private $postDate;
 

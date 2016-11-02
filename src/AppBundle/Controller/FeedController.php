@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class FeedController extends Controller
 {
+    // feed podcast routes
+    // TODO: General XML support for atom feeds
+
     /**
      * @Route(
      *      "/feed/podcast/{page}.{_format}",
@@ -16,7 +19,7 @@ class FeedController extends Controller
      *      name="podcast_feed",
      *      requirements={
      *          "page": "\d+|all",
-     *          "_format": "html|rss"
+     *          "_format": "html|rss|xml"
      *      }
      * )
      * @Route("/episodes", name="episodes_landing")
@@ -38,7 +41,7 @@ class FeedController extends Controller
      *      name="view_episode",
      *      requirements={
      *          "episodeNumber": "\d+",
-     *          "_format": "html|rss"
+     *          "_format": "html|rss|xml"
      *      }
      * )
      */
@@ -64,5 +67,27 @@ class FeedController extends Controller
      */
     public function downloadEpisode($episodeNumber, $_format) {
         //TODO: Counting and analytics, return file here
+    }
+
+    // feed route
+    /**
+     * @Route(
+     *      "/feed/{page}.{_format}",
+     *      defaults={"_format": "html"},
+     *      name="feed_home",
+     *      requirements={
+     *          "page": "\d+|all",
+     *          "_format": "html|rss|xml"
+     *      }
+     * )
+     */
+    public function listFeed($page = 1, $_format) {
+        //TODO: Pull combined
+
+        if($_format == "rss") {
+            return $this->render('feed/feed.rss.twig');
+        } else {
+            return $this->render('feed/feed.html.twig');
+        }
     }
 }

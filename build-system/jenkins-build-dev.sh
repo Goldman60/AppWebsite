@@ -1,5 +1,5 @@
 #!/bin/bash
-#Build script for jenkins
+#Build script for
 
 #Send files to dev directory
 rsync -a --delete --exclude /var/cache/ --exclude /var/logs/ --exclude /var/sessions/ $WORKSPACE/ /www/aprogrammingpodcast.com/bleeding/ --no-perms --no-owner --no-group
@@ -27,3 +27,11 @@ SetupCachingDirectory /www/aprogrammingpodcast.com/bleeding/var
 SetupCachingDirectory /www/aprogrammingpodcast.com/bleeding/var/cache
 SetupCachingDirectory /www/aprogrammingpodcast.com/bleeding/var/logs
 SetupCachingDirectory /www/aprogrammingpodcast.com/bleeding/var/sessions
+
+cd /www/aprogrammingpodcast.com/bleeding/
+
+#Clear out the database to populate it with crap for dev
+/usr/bin/php7.1 bin/console doctrine:database:drop --force
+/usr/bin/php7.1 bin/console doctrine:database:create
+/usr/bin/php7.1 bin/console doctrine:schema:update --force
+/usr/bin/php7.1 bin/console PopulateDatabaseDev

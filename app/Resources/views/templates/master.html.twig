@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('bundles/bootstrap/css/bootstrap-grid.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('resources/css/main.css') }}" />
     {% block stylesheets %}{% endblock %}
-    <title>{% block title %}Need titel{% endblock %}</title>
+    <title>APP > {% block title %}Need title{% endblock %}</title>
 </head>
 <body>
     <div class="container clearfix" id="main-container">
@@ -34,7 +34,7 @@
         {% block body %}BODY CONTENT{% endblock %}
     </div>
     <footer>
-        <divd>FOOTER</divd>
+        <div>FOOTER</div>
     </footer>
 
     <script src="{{ asset('bundles/jquery/jquery.min.js') }}"></script>

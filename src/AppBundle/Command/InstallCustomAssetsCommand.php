@@ -16,7 +16,13 @@ class InstallCustomAssetsCommand extends ContainerAwareCommand
 {
     const WEB_TARGET = 'web/bundles/';
 
+    /**
+     * @var Filesystem
+     */
     private $fs;
+    /**
+     * @var String
+     */
     private $rootDir;
 
     protected function configure()
@@ -47,7 +53,7 @@ class InstallCustomAssetsCommand extends ContainerAwareCommand
         $console->success('Custom assets successfully installed');
     }
 
-    private function processBundleAssets($vendorDir, $packageName, $customAssetDir = '') {
+    private function processBundleAssets(String $vendorDir, String $packageName, String $customAssetDir = '') {
         $sourceDir = $this->rootDir . '/vendor/' . $vendorDir . '/' . $packageName . $customAssetDir;
         $targetDir = $this->rootDir . '/' . self::WEB_TARGET . $packageName;
 
