@@ -1,5 +1,5 @@
 #!/bin/bash
-composer install --no-dev
+composer install
 
 #Send files to dev directory
 rsync -a --delete --exclude /var/cache/ --exclude /var/logs/ --exclude /var/sessions/ $WORKSPACE/ /www/aprogrammingpodcast.com/bleeding/ --no-perms --no-owner --no-group
