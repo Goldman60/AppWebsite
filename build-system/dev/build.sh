@@ -1,4 +1,5 @@
 #!/bin/bash
+#TODO: eventually all but the deployment location for dev should be the same
 composer install
 
 #Send files to dev directory

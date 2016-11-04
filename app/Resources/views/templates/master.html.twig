@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('bundles/bootstrap/css/bootstrap-grid.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('resources/css/main.css') }}" />
     {% block stylesheets %}{% endblock %}
-    <title>APP > {% block title %}Need title{% endblock %}</title>
+    <title>APP:\> {% block title %}Need title{% endblock %}</title>
 </head>
 <body>
     <div class="container clearfix" id="main-container">
@@ -20,10 +20,10 @@
             </div>
             <div class="collapse navbar-toggleable-sm float-md-right" id="navbarResponsive">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/feed">Feed</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/hosts">Hosts</a></li>
-                    <li class="nav-item nav-pills"><a class="nav-link" href="/subscribe">Subscribe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('homepage') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('feed_home') }}">Feed</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ path('hosts') }}">Hosts</a></li>
+                    <li class="nav-item nav-pills"><a class="nav-link" href="{{ path('subscribe') }}">Subscribe</a></li>
                 </ul>
 
             </div>
@@ -33,8 +33,17 @@
         </header>
         {% block body %}BODY CONTENT{% endblock %}
     </div>
-    <footer>
-        <div>FOOTER</div>
+    <footer class="container">
+        <div class="links">Contact Us - License</div>
+        <div class="copyright">&copy; 2016 A Programming Podcast, Some Rights Reserved</div>
+        <div class="license row">
+            <div class="col-md-3 text-md-right"><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+                <img alt="Creative Commons License" style="border-width:0" src="{{ asset('resources/img/by-nc.svg') }}" />
+            </a></div>
+            <div class="col-md-9 text-md-left">
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">A Programming Podcast</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="{{ url('license') }}" rel="cc:morePermissions">https://aprogrammingpodcast.com/license</a>.
+            </div>
+        </div>
     </footer>
 
     <script src="{{ asset('bundles/jquery/jquery.min.js') }}"></script>

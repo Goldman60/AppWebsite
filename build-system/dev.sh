@@ -1,4 +1,5 @@
 #!/bin/bash
+#Bleeding deployment shim
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/general/config.sh
 source $DIR/general/functions.sh

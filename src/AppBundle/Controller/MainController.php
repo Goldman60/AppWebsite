@@ -35,4 +35,11 @@ class MainController extends Controller {
 
         ]);
     }
+
+    /**
+     * @Route("/license", name="license")
+     */
+    public function licenseAction() {
+
+    }
 }

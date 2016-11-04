@@ -19,8 +19,17 @@ body {
 
 footer {
     text-align: center;
+    font-size: small;
 }
 
 .nav-pills {
     background-color: green;
+}
+
+footer.copyright {
+
+}
+
+footer.links {
+
 }

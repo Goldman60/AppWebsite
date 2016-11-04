@@ -1,5 +1,9 @@
 {% extends 'templates/master.html.twig' %}
 
 {% block body %}
-    List the podcasts here
+    <ul>
+        {% for episode in eps  %}
+            <li><a href="{{ path('view_episode',{'epNum': episode.number}) }}">{{ episode.number }} - {{ episode.name }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}
