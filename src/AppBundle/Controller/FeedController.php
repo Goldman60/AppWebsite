@@ -103,7 +103,7 @@ class FeedController extends Controller
      * )
      */
     public function downloadEpisode(String $episodeNumber, String $episodeName, String $_format, Request $req) {
-        $file = '/store/testing/podcast/' . $episodeNumber . '.' . $_format;
+        $file = '/store/podcast/' . $episodeNumber . '.' . $_format;
 
         $response = new Response();
 
