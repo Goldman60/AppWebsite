@@ -103,13 +103,11 @@ class FeedController extends Controller
      * )
      */
     public function downloadEpisode(String $episodeNumber, String $episodeName, String $_format, Request $req) {
-        $file = 'store/podcast/' . $episodeNumber . '.' . $_format;
+        $file = '/store/testing/podcast/' . $episodeNumber . '.' . $_format;
 
-        BinaryFileResponse::trustXSendfileTypeHeader();
+        $response = new Response();
 
-        $response = new BinaryFileResponse($file);
-
-        $response->setContentDisposition(
+        $response->headers->set(
             ResponseHeaderBag::DISPOSITION_ATTACHMENT,
             $episodeNumber . ' - ' . $episodeName . '.' . $_format
         );
@@ -119,6 +117,9 @@ class FeedController extends Controller
         } else {
             $response->headers->set('Content-Type', 'audio/ogg');
         }
+
+        $response->headers->set('X-Accel-Redirect',$file);
+
 
         //TODO: Counting and analytics
 
