@@ -188,4 +188,16 @@ class Episode
     {
         return $this->postDate;
     }
+
+    /**
+     * Get the postDate as an RFC-[2]822 compliant string
+     *
+     * @return string
+     */
+    public function getPostDateRFC822() {
+        /** @var \DateTime $date */
+        $date = $this->getPostDate();
+
+        return $date->format(\DateTime::RFC2822);
+    }
 }

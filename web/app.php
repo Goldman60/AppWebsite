@@ -1,5 +1,6 @@
 <?php
 
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /** @var \Composer\Autoload\ClassLoader $loader */
@@ -12,6 +13,7 @@ $kernel->loadClassCache();
 
 // When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
 //Request::enableHttpMethodParameterOverride();
+BinaryFileResponse::trustXSendfileTypeHeader();
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();

@@ -19,3 +19,8 @@ Build Requirements
 * You are running MariaDB 10.1 or a compatible mysql database that understands utf8mb4_unicode_ci encoding
 
 Other setups may work but I'm not testing against them
+
+Other Setup
+===========
+To serve podcast files this application assumes you have access to a web server
+supporting nginx's x-accel-redirect, if you are running Apache you can use mod_xsendfile.

@@ -4,8 +4,10 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class FeedController extends Controller
@@ -100,9 +102,25 @@ class FeedController extends Controller
      *     }
      * )
      */
-    public function downloadEpisode($episodeNumber, $_format) {
-        //TODO: Counting and analytics, return file here
-        throw $this->createAccessDeniedException('Not implemented');
+    public function downloadEpisode(String $episodeNumber, String $episodeName, String $_format, Request $req) {
+        $file = '/store/podcast/' . $episodeNumber . '.' . $_format;
+        $response = new BinaryFileResponse($file);
+
+        $disposition = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            $episodeNumber . ' - ' . $episodeName . '.' . $_format
+        );
+        $response->headers->set('Content-Disposition', $disposition);
+
+        if($_format == '.mp3') {
+            $response->headers->set('Content-Type', 'audio/mpeg3');
+        } else {
+            $response->headers->set('Content-Type', 'audio/ogg');
+        }
+
+        //TODO: Counting and analytics
+
+        return $response;
     }
 
     // feed route

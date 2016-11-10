@@ -1,6 +1,27 @@
 {% extends 'templates/rssDoc.rss.twig' %}
 
-{% block xmlns %}xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:itunesu="http://www.itunesu.com/feed"{% endblock %}
+{% block xmlns %}xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"{% endblock %}
 
 {% block rssContent %}
+    <channel>
+        <title>APP</title>
+        <link>{{ absolute_url(path('homepage')) }}</link>
+        <copyright>&#174; 2016 A Programming Podcast and its Authors CC-BY-NC</copyright>
+        <description></description>
+        <language>en-us</language>
+        <pubDate>{{ eps[0].getPostDateRFC822() }}</pubDate>
+        <generator>github.com/Goldman60/AppWebsite</generator>
+        <webMaster>webmaster@nclf.net</webMaster>
+    {% for episode in eps  %}
+        {# Move this block to episode.rss #}
+        <item>
+            <title>Episode {{ episode.number }}: {{ episode.name }}</title>
+            <description>{{ episode.description }}</description>
+            <guid>{{ absolute_url(path('view_episode',{'epNum': episode.number})) }}</guid>
+            <pubDate>{{ episode.getPostDateRFC822() }}</pubDate>
+            <link>{{ absolute_url(path('view_episode',{'epNum': episode.number})) }}</link>
+            <itunes:explicit>no</itunes:explicit>
+        </item>
+    {% endfor %}
+    </channel>
 {% endblock %}
