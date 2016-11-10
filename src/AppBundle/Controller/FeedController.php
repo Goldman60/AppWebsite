@@ -103,14 +103,16 @@ class FeedController extends Controller
      * )
      */
     public function downloadEpisode(String $episodeNumber, String $episodeName, String $_format, Request $req) {
-        $file = '/store/podcast/' . $episodeNumber . '.' . $_format;
+        $file = 'store/podcast/' . $episodeNumber . '.' . $_format;
+
+        BinaryFileResponse::trustXSendfileTypeHeader();
+
         $response = new BinaryFileResponse($file);
 
-        $disposition = $response->headers->makeDisposition(
+        $response->setContentDisposition(
             ResponseHeaderBag::DISPOSITION_ATTACHMENT,
             $episodeNumber . ' - ' . $episodeName . '.' . $_format
         );
-        $response->headers->set('Content-Disposition', $disposition);
 
         if($_format == '.mp3') {
             $response->headers->set('Content-Type', 'audio/mpeg3');
